@@ -1,10 +1,10 @@
 
 -- 0. CRIAÇÃO DO BANCO (Caso não esteja com a database ainda, use essa parte)
 
-CREATE DATABASE NexaDesk;
-GO
-USE NexaDesk;
-GO
+--CREATE DATABASE NexaDesk;
+--GO
+--USE NexaDesk;
+--GO
 
 
 
