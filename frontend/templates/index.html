@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,6 +10,7 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   <script defer src="{{ url_for('static', filename='js/app.js') }}"></script>
 </head>
+
 <body>
   <section id="login-screen" class="login-screen">
     <div class="login-visual">
@@ -22,7 +24,8 @@
         <p>Uma visão centralizada dos chamados, equipamentos e serviços da sua operação de TI.</p>
       </div>
       <div class="visual-footer"><span class="pulse-dot"></span> Plataforma de operações de TI</div>
-      <div class="orb orb-one"></div><div class="orb orb-two"></div>
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
     </div>
     <div class="login-panel">
       <div class="login-mobile-brand"><img src="{{ url_for('static', filename='img/logo.png') }}" alt=""><strong>NexaDesk</strong></div>
@@ -51,7 +54,9 @@
         <div><strong>Nexa<span>Desk</span></strong><small>IT SERVICE MANAGEMENT</small></div>
         <button id="close-sidebar" class="icon-btn close-sidebar" aria-label="Fechar menu">×</button>
       </div>
-      <div class="workspace"><span class="workspace-icon">N</span><div><strong>NexaTech Solutions</strong><small>Ambiente de demonstração</small></div><span class="chevron">⌄</span></div>
+      <div class="workspace"><span class="workspace-icon">N</span>
+        <div><strong>NexaTech Solutions</strong><small>Ambiente de demonstração</small></div><span class="chevron">⌄</span>
+      </div>
       <nav class="nav-menu" aria-label="Navegação principal">
         <p class="nav-caption">VISÃO GERAL</p>
         <button class="nav-item active" data-page="dashboard"><span class="nav-icon">▦</span>Dashboard</button>
@@ -69,16 +74,28 @@
         <button class="nav-item" data-page="financeiro"><span class="nav-icon">＄</span>Financeiro</button>
         <button class="nav-item" data-page="historico"><span class="nav-icon">◴</span>Histórico / auditoria</button>
         <button class="nav-item" data-page="usuarios"><span class="nav-icon">♙</span>Usuários</button>
+
+        <p class="nav-caption">SISTEMA</p>
+        <button class="nav-item" data-page="configuracoes">
+          <span class="nav-icon">⚙</span>Configurações
+        </button>
       </nav>
       <div class="sidebar-bottom">
-        <div class="help-card"><div class="help-icon">?</div><div><strong>Precisa de ajuda?</strong><p>Consulte o guia da plataforma.</p><a href="#" id="help-link">Acessar central →</a></div></div>
+        <div class="help-card">
+          <div class="help-icon">?</div>
+          <div><strong>Precisa de ajuda?</strong>
+            <p>Consulte o guia da plataforma.</p><a href="#" id="help-link">Acessar central →</a>
+          </div>
+        </div>
         <button class="profile-mini" id="profile-button"><span class="avatar">KA</span><span class="profile-info"><strong id="sidebar-user">Kaike Almeida</strong><small id="sidebar-role">Administrador</small></span><span class="more">•••</span></button>
       </div>
     </aside>
 
     <main class="main-area">
       <header class="topbar">
-        <div class="topbar-left"><button id="open-sidebar" class="icon-btn menu-toggle" aria-label="Abrir menu">☰</button><div class="breadcrumb">NexaDesk <span>/</span> <strong id="breadcrumb-current">Dashboard</strong></div></div>
+        <div class="topbar-left"><button id="open-sidebar" class="icon-btn menu-toggle" aria-label="Abrir menu">☰</button>
+          <div class="breadcrumb">NexaDesk <span>/</span> <strong id="breadcrumb-current">Dashboard</strong></div>
+        </div>
         <div class="topbar-actions">
           <div class="system-status"><span class="pulse-dot"></span> Sistema operacional</div>
           <button class="icon-btn notification-btn" id="notifications-button" aria-label="Notificações">♧<i></i></button>
@@ -89,37 +106,282 @@
 
       <div class="page-content">
         <section id="page-dashboard" class="page-section">
-          <div class="page-heading heading-dashboard"><div><span class="eyebrow">QUINTA-FEIRA, 15 DE OUTUBRO DE 2026</span><h1>Visão geral <span class="wave">✦</span></h1><p>Acompanhe o que está acontecendo na sua operação hoje.</p></div><div class="heading-actions"><button class="btn btn-secondary" data-action="export"><span>↓</span> Exportar</button><button class="btn btn-primary" data-go="chamados"><span>＋</span> Novo chamado</button></div></div>
+          <div class="page-heading heading-dashboard">
+            <div><span class="eyebrow">QUINTA-FEIRA, 15 DE OUTUBRO DE 2026</span>
+              <h1>Visão geral <span class="wave">✦</span></h1>
+              <p>Acompanhe o que está acontecendo na sua operação hoje.</p>
+            </div>
+            <div class="heading-actions"><button class="btn btn-secondary" data-action="export"><span>↓</span> Exportar</button><button class="btn btn-primary" data-go="chamados"><span>＋</span> Novo chamado</button></div>
+          </div>
           <div class="demo-banner"><span class="demo-banner-icon">i</span><span><strong>Ambiente de demonstração</strong> — os indicadores e registros abaixo são exemplos visuais, não dados reais do banco.</span><button id="dismiss-banner" aria-label="Fechar aviso">×</button></div>
-          <div class="section-title-row"><div><h2>Indicadores principais</h2><p>Resumo operacional da empresa</p></div><button class="period-select" id="period-button">Últimos 30 dias <span>⌄</span></button></div>
+          <div class="section-title-row">
+            <div>
+              <h2>Indicadores principais</h2>
+              <p>Resumo operacional da empresa</p>
+            </div><button class="period-select" id="period-button">Últimos 30 dias <span>⌄</span></button>
+          </div>
           <div class="stats-grid">
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">Chamados em aberto</span><span class="stat-icon blue">▤</span></div><div class="stat-number">128</div><div class="stat-foot"><span class="trend positive">↗ 12,8%</span><span>vs. período anterior</span></div><div class="mini-bars"><i style="height:35%"></i><i style="height:50%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:82%"></i><i style="height:68%"></i><i style="height:100%"></i></div></article>
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">Em manutenção</span><span class="stat-icon violet">⚙</span></div><div class="stat-number">36</div><div class="stat-foot"><span class="trend positive">↘ 4,2%</span><span>vs. período anterior</span></div><div class="mini-bars violet-bars"><i style="height:78%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:40%"></i></div></article>
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">Aguardando peça</span><span class="stat-icon orange">▧</span></div><div class="stat-number">14</div><div class="stat-foot"><span class="trend negative">↗ 2,1%</span><span>vs. período anterior</span></div><div class="mini-bars orange-bars"><i style="height:35%"></i><i style="height:50%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:62%"></i><i style="height:80%"></i><i style="height:100%"></i></div></article>
-            <article class="stat-card"><div class="stat-top"><span class="stat-label">Receita mensal</span><span class="stat-icon teal">＄</span></div><div class="stat-number">R$ 24.850<span class="number-decimal">,00</span></div><div class="stat-foot"><span class="trend positive">↗ 8,4%</span><span>vs. mês anterior</span></div><div class="revenue-line"><svg viewBox="0 0 180 35" preserveAspectRatio="none" aria-label="Tendência de receita"><path d="M0 30 C15 24 17 28 29 19 S48 23 61 14 S79 21 91 10 S110 19 123 8 S145 12 158 4 S171 8 180 1" fill="none" stroke="currentColor" stroke-width="2.5"/></svg></div></article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">Chamados em aberto</span><span class="stat-icon blue">▤</span></div>
+              <div class="stat-number">128</div>
+              <div class="stat-foot"><span class="trend positive">↗ 12,8%</span><span>vs. período anterior</span></div>
+              <div class="mini-bars"><i style="height:35%"></i><i style="height:50%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:82%"></i><i style="height:68%"></i><i style="height:100%"></i></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">Em manutenção</span><span class="stat-icon violet">⚙</span></div>
+              <div class="stat-number">36</div>
+              <div class="stat-foot"><span class="trend positive">↘ 4,2%</span><span>vs. período anterior</span></div>
+              <div class="mini-bars violet-bars"><i style="height:78%"></i><i style="height:62%"></i><i style="height:84%"></i><i style="height:55%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:60%"></i><i style="height:40%"></i></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">Aguardando peça</span><span class="stat-icon orange">▧</span></div>
+              <div class="stat-number">14</div>
+              <div class="stat-foot"><span class="trend negative">↗ 2,1%</span><span>vs. período anterior</span></div>
+              <div class="mini-bars orange-bars"><i style="height:35%"></i><i style="height:50%"></i><i style="height:42%"></i><i style="height:70%"></i><i style="height:58%"></i><i style="height:62%"></i><i style="height:80%"></i><i style="height:100%"></i></div>
+            </article>
+            <article class="stat-card">
+              <div class="stat-top"><span class="stat-label">Receita mensal</span><span class="stat-icon teal">＄</span></div>
+              <div class="stat-number">R$ 24.850<span class="number-decimal">,00</span></div>
+              <div class="stat-foot"><span class="trend positive">↗ 8,4%</span><span>vs. mês anterior</span></div>
+              <div class="revenue-line"><svg viewBox="0 0 180 35" preserveAspectRatio="none" aria-label="Tendência de receita">
+                  <path d="M0 30 C15 24 17 28 29 19 S48 23 61 14 S79 21 91 10 S110 19 123 8 S145 12 158 4 S171 8 180 1" fill="none" stroke="currentColor" stroke-width="2.5" />
+                </svg></div>
+            </article>
           </div>
           <div class="dashboard-grid">
-            <article class="panel chart-panel"><div class="panel-heading"><div><h2>Volume de chamados</h2><p>Entrada e conclusão de chamados</p></div><button class="select-lite" id="chart-period">Esta semana ⌄</button></div><div class="chart-legend"><span><i class="legend-dot legend-blue"></i> Recebidos</span><span><i class="legend-dot legend-teal"></i> Concluídos</span></div><div class="chart-wrap"><div class="y-labels"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div><div class="chart-main"><div class="chart-grid-lines"><i></i><i></i><i></i><i></i><i></i></div><div class="bar-chart"><div class="bar-group"><div class="bar received" style="height:57%"></div><div class="bar completed" style="height:40%"></div><span>Seg</span></div><div class="bar-group"><div class="bar received" style="height:76%"></div><div class="bar completed" style="height:53%"></div><span>Ter</span></div><div class="bar-group"><div class="bar received" style="height:65%"></div><div class="bar completed" style="height:59%"></div><span>Qua</span></div><div class="bar-group"><div class="bar received" style="height:88%"></div><div class="bar completed" style="height:70%"></div><span>Qui</span></div><div class="bar-group"><div class="bar received" style="height:50%"></div><div class="bar completed" style="height:44%"></div><span>Sex</span></div><div class="bar-group"><div class="bar received" style="height:69%"></div><div class="bar completed" style="height:49%"></div><span>Sáb</span></div><div class="bar-group"><div class="bar received" style="height:35%"></div><div class="bar completed" style="height:27%"></div><span>Dom</span></div></div></div></div></article>
-            <article class="panel status-panel"><div class="panel-heading"><div><h2>Status dos chamados</h2><p>Distribuição atual</p></div><button class="dots-btn" aria-label="Mais opções">•••</button></div><div class="donut-wrap"><div class="donut"><div class="donut-center"><strong>178</strong><span>Total</span></div></div></div><div class="status-legend"><div><span><i class="legend-dot legend-blue"></i>Em aberto</span><strong>72</strong></div><div><span><i class="legend-dot legend-violet"></i>Em manutenção</span><strong>36</strong></div><div><span><i class="legend-dot legend-orange"></i>Aguardando peça</span><strong>14</strong></div><div><span><i class="legend-dot legend-teal"></i>Finalizados</span><strong>56</strong></div></div></article>
+            <article class="panel chart-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Volume de chamados</h2>
+                  <p>Entrada e conclusão de chamados</p>
+                </div><button class="select-lite" id="chart-period">Esta semana ⌄</button>
+              </div>
+              <div class="chart-legend"><span><i class="legend-dot legend-blue"></i> Recebidos</span><span><i class="legend-dot legend-teal"></i> Concluídos</span></div>
+              <div class="chart-wrap">
+                <div class="y-labels"><span>100</span><span>75</span><span>50</span><span>25</span><span>0</span></div>
+                <div class="chart-main">
+                  <div class="chart-grid-lines"><i></i><i></i><i></i><i></i><i></i></div>
+                  <div class="bar-chart">
+                    <div class="bar-group">
+                      <div class="bar received" style="height:57%"></div>
+                      <div class="bar completed" style="height:40%"></div><span>Seg</span>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar received" style="height:76%"></div>
+                      <div class="bar completed" style="height:53%"></div><span>Ter</span>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar received" style="height:65%"></div>
+                      <div class="bar completed" style="height:59%"></div><span>Qua</span>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar received" style="height:88%"></div>
+                      <div class="bar completed" style="height:70%"></div><span>Qui</span>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar received" style="height:50%"></div>
+                      <div class="bar completed" style="height:44%"></div><span>Sex</span>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar received" style="height:69%"></div>
+                      <div class="bar completed" style="height:49%"></div><span>Sáb</span>
+                    </div>
+                    <div class="bar-group">
+                      <div class="bar received" style="height:35%"></div>
+                      <div class="bar completed" style="height:27%"></div><span>Dom</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+            <article class="panel status-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Status dos chamados</h2>
+                  <p>Distribuição atual</p>
+                </div><button class="dots-btn" aria-label="Mais opções">•••</button>
+              </div>
+              <div class="donut-wrap">
+                <div class="donut">
+                  <div class="donut-center"><strong>178</strong><span>Total</span></div>
+                </div>
+              </div>
+              <div class="status-legend">
+                <div><span><i class="legend-dot legend-blue"></i>Em aberto</span><strong>72</strong></div>
+                <div><span><i class="legend-dot legend-violet"></i>Em manutenção</span><strong>36</strong></div>
+                <div><span><i class="legend-dot legend-orange"></i>Aguardando peça</span><strong>14</strong></div>
+                <div><span><i class="legend-dot legend-teal"></i>Finalizados</span><strong>56</strong></div>
+              </div>
+            </article>
           </div>
           <div class="dashboard-grid lower-grid">
-            <article class="panel table-panel"><div class="panel-heading"><div><h2>Chamados recentes</h2><p>Últimas solicitações registradas</p></div><button class="text-link" data-go="chamados">Ver todos →</button></div><div class="table-scroll"><table><thead><tr><th>CHAMADO</th><th>CLIENTE</th><th>ASSUNTO</th><th>PRIORIDADE</th><th>STATUS</th></tr></thead><tbody id="recent-tickets"></tbody></table></div></article>
-            <article class="panel stock-panel"><div class="panel-heading"><div><h2>Estoque baixo</h2><p>Peças que precisam de atenção</p></div><span class="alert-count">3 alertas</span></div><div id="low-stock-list" class="low-stock-list"></div><button class="btn btn-secondary btn-full" data-go="estoque">Ver estoque completo <span>→</span></button></article>
+            <article class="panel table-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Chamados recentes</h2>
+                  <p>Últimas solicitações registradas</p>
+                </div><button class="text-link" data-go="chamados">Ver todos →</button>
+              </div>
+              <div class="table-scroll">
+                <table>
+                  <thead>
+                    <tr>
+                      <th>CHAMADO</th>
+                      <th>CLIENTE</th>
+                      <th>ASSUNTO</th>
+                      <th>PRIORIDADE</th>
+                      <th>STATUS</th>
+                    </tr>
+                  </thead>
+                  <tbody id="recent-tickets"></tbody>
+                </table>
+              </div>
+            </article>
+            <article class="panel stock-panel">
+              <div class="panel-heading">
+                <div>
+                  <h2>Estoque baixo</h2>
+                  <p>Peças que precisam de atenção</p>
+                </div><span class="alert-count">3 alertas</span>
+              </div>
+              <div id="low-stock-list" class="low-stock-list"></div><button class="btn btn-secondary btn-full" data-go="estoque">Ver estoque completo <span>→</span></button>
+            </article>
           </div>
           <footer class="page-footer">NexaDesk <span>•</span> Central de operações <span class="footer-right">Protótipo de interface · 2026</span></footer>
         </section>
 
         <section id="page-generic" class="page-section hidden">
-          <div class="page-heading generic-heading"><div><span class="eyebrow" id="generic-eyebrow">GESTÃO OPERACIONAL</span><h1 id="generic-title">Chamados</h1><p id="generic-description">Acompanhe e gerencie os registros da operação.</p></div><button id="generic-create" class="btn btn-primary"><span>＋</span> <span id="generic-create-label">Novo registro</span></button></div>
+          <div class="page-heading generic-heading">
+            <div><span class="eyebrow" id="generic-eyebrow">GESTÃO OPERACIONAL</span>
+              <h1 id="generic-title">Chamados</h1>
+              <p id="generic-description">Acompanhe e gerencie os registros da operação.</p>
+            </div><button id="generic-create" class="btn btn-primary"><span>＋</span> <span id="generic-create-label">Novo registro</span></button>
+          </div>
           <div id="generic-alert" class="inline-alert hidden" role="status"></div>
           <div class="panel generic-panel">
-            <div class="generic-toolbar"><div class="search-field"><span>⌕</span><input id="table-search" type="search" placeholder="Pesquisar registros..."><kbd>⌘ K</kbd></div><div class="toolbar-filters"><select id="status-filter" aria-label="Filtrar por status"><option value="">Todos os status</option></select><button id="filter-button" class="btn btn-secondary">☷ Filtros</button></div></div>
-            <div id="extra-filters" class="extra-filters hidden"><select id="priority-filter" aria-label="Prioridade"><option value="">Todas as prioridades</option><option>BAIXA</option><option>MÉDIA</option><option>ALTA</option><option>CRÍTICA</option></select><select id="category-filter" aria-label="Categoria"><option value="">Todas as categorias</option><option>HARDWARE</option><option>SOFTWARE</option><option>REDE</option><option>SEGURANÇA</option><option>INFRAESTRUTURA</option><option>OUTROS</option></select><input id="date-filter" type="date" aria-label="Filtrar a partir da data"></div>
-            <div class="table-scroll generic-table-scroll"><table><thead id="generic-thead"></thead><tbody id="generic-tbody"></tbody></table></div>
-            <div class="table-bottom"><span id="table-count">Exibindo registros de demonstração</span><div class="pagination"><button disabled>←</button><button class="current-page">1</button><button disabled>→</button></div></div>
+            <div class="generic-toolbar">
+              <div class="search-field"><span>⌕</span><input id="table-search" type="search" placeholder="Pesquisar registros..."><kbd>⌘ K</kbd></div>
+              <div class="toolbar-filters"><select id="status-filter" aria-label="Filtrar por status">
+                  <option value="">Todos os status</option>
+                </select><button id="filter-button" class="btn btn-secondary">☷ Filtros</button></div>
+            </div>
+            <div id="extra-filters" class="extra-filters hidden"><select id="priority-filter" aria-label="Prioridade">
+                <option value="">Todas as prioridades</option>
+                <option>BAIXA</option>
+                <option>MÉDIA</option>
+                <option>ALTA</option>
+                <option>CRÍTICA</option>
+              </select><select id="category-filter" aria-label="Categoria">
+                <option value="">Todas as categorias</option>
+                <option>HARDWARE</option>
+                <option>SOFTWARE</option>
+                <option>REDE</option>
+                <option>SEGURANÇA</option>
+                <option>INFRAESTRUTURA</option>
+                <option>OUTROS</option>
+              </select><input id="date-filter" type="date" aria-label="Filtrar a partir da data"></div>
+            <div class="table-scroll generic-table-scroll">
+              <table>
+                <thead id="generic-thead"></thead>
+                <tbody id="generic-tbody"></tbody>
+              </table>
+            </div>
+            <div class="table-bottom"><span id="table-count">Exibindo registros de demonstração</span>
+              <div class="pagination"><button disabled>←</button><button class="current-page">1</button><button disabled>→</button></div>
+            </div>
           </div>
           <div class="generic-note"><span>ⓘ</span> Esta tela utiliza dados demonstrativos. Conecte-a à API Flask para consultar e persistir registros reais.</div>
           <footer class="page-footer">NexaDesk <span>•</span> Central de operações <span class="footer-right">Protótipo de interface · 2026</span></footer>
+        </section>
+        <section id="page-configuracoes" class="page-section hidden">
+          <div class="page-heading generic-heading">
+            <div>
+              <span class="eyebrow">SISTEMA</span>
+              <h1>Configurações</h1>
+              <p>Personalize a aparência e as preferências do NexaDesk.</p>
+            </div>
+          </div>
+
+          <div class="settings-grid">
+
+            <article class="panel settings-panel">
+              <div class="settings-heading">
+                <div class="settings-icon">◐</div>
+                <div>
+                  <h2>Aparência</h2>
+                  <p>Escolha como o NexaDesk será exibido.</p>
+                </div>
+              </div>
+
+              <div class="theme-options">
+
+                <button class="theme-option" id="theme-light" type="button">
+                  <div class="theme-preview theme-preview-light">
+                    <div class="preview-sidebar"></div>
+                    <div class="preview-content">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+
+                  <div class="theme-option-info">
+                    <div>
+                      <strong>☀ Modo claro</strong>
+                      <small>Aparência padrão do NexaDesk</small>
+                    </div>
+                    <span class="theme-check" id="theme-light-check">✓</span>
+                  </div>
+                </button>
+
+                <button class="theme-option" id="theme-dark" type="button">
+                  <div class="theme-preview theme-preview-dark">
+                    <div class="preview-sidebar"></div>
+                    <div class="preview-content">
+                      <span></span>
+                      <span></span>
+                      <span></span>
+                    </div>
+                  </div>
+
+                  <div class="theme-option-info">
+                    <div>
+                      <strong>☾ Modo escuro</strong>
+                      <small>Ideal para ambientes com pouca luz</small>
+                    </div>
+                    <span class="theme-check" id="theme-dark-check">✓</span>
+                  </div>
+                </button>
+
+              </div>
+            </article>
+
+            <article class="panel settings-panel settings-info-panel">
+              <div class="settings-heading">
+                <div class="settings-icon">✓</div>
+                <div>
+                  <h2>Preferência salva</h2>
+                  <p>Sua escolha será mantida neste navegador.</p>
+                </div>
+              </div>
+
+              <div class="settings-status">
+                <span class="settings-status-dot"></span>
+                <div>
+                  <strong id="current-theme-label">Modo claro</strong>
+                  <small>O tema é aplicado automaticamente ao NexaDesk.</small>
+                </div>
+              </div>
+            </article>
+
+          </div>
+
+          <footer class="page-footer">
+            NexaDesk
+            <span>•</span>
+            Central de operações
+            <span class="footer-right">Preferências do sistema · 2026</span>
+          </footer>
         </section>
       </div>
     </main>
@@ -127,11 +389,19 @@
 
   <div id="modal-backdrop" class="modal-backdrop hidden">
     <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
-      <div class="modal-heading"><div><span class="eyebrow">NEXADESK</span><h2 id="modal-title">Novo registro</h2></div><button id="modal-close" class="icon-btn" aria-label="Fechar">×</button></div>
-      <form id="record-form"><div id="modal-fields" class="modal-fields"></div><div class="modal-actions"><button type="button" id="modal-cancel" class="btn btn-secondary">Cancelar</button><button type="submit" class="btn btn-primary">Salvar demonstração</button></div></form>
+      <div class="modal-heading">
+        <div><span class="eyebrow">NEXADESK</span>
+          <h2 id="modal-title">Novo registro</h2>
+        </div><button id="modal-close" class="icon-btn" aria-label="Fechar">×</button>
+      </div>
+      <form id="record-form">
+        <div id="modal-fields" class="modal-fields"></div>
+        <div class="modal-actions"><button type="button" id="modal-cancel" class="btn btn-secondary">Cancelar</button><button type="submit" class="btn btn-primary">Salvar demonstração</button></div>
+      </form>
       <p class="modal-footnote">Os dados não são enviados a um servidor nem gravados no banco.</p>
     </section>
   </div>
   <div id="toast-region" class="toast-region" aria-live="polite" aria-atomic="true"></div>
 </body>
+
 </html>
